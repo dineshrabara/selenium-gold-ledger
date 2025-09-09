@@ -1,6 +1,6 @@
 Feature('login');
 
-Scenario('Login and Touch Master', ({ I }) => {
+Scenario('Login and Unit Master', ({ I }) => {
   I.amOnPage('https://gold.socioledger.com');
 
 //   Login Page
@@ -27,71 +27,70 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.see('Top 5 Customers');
   I.see('Top 5 Suppliers');
 
-//   Touch Master Create
+//   Unit Master Create
   I.click('Items');
-  I.waitForText('Touch & Colors', 2);
-  I.click('Touch & Colors');
-  I.see('Touch');
-  I.waitForText('Add Touch', 5);
-  I.click('Add Touch');
-  I.waitForText('Create New Touch', 3);
-  I.see('Create New Touch');
-  const touch_name = `92 KT (${Date.now()})`;
-  I.fillField('name', touch_name);
-  I.fillField('real_touch', '00');
+  I.waitForText('Item Units', 2);
+  I.click('Item Units');
+  I.see('Item Units');
+  I.waitForText('Add Item Unit', 5);
+  I.click('Add Item Unit');
+  I.waitForText('Create New Item Unit', 3);
+  I.see('Create New Item Unit');
+  const Unit_name = `Unit (${Date.now()})`;
+  I.fillField('name', Unit_name);
+  I.fillField('shortname', 'Short Name');
   I.click('Save');
-  I.see('Touch created successfully');
+  I.see('Item unit created successfully');
 
-//   Touch Master Update
+//   Unit Master Update
   I.click('Open menu'); 
   I.waitForText('Edit', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
-  I.waitForText('Update Touch', 5);
-  I.fillField('name', touch_name);
-  I.click('Save');
-  I.see('Touch updated successfully');
+  I.waitForText('Update Item Unit', 5);
+  I.fillField('name', Unit_name);
+  I.click('Update');
+  I.see('Item unit updated successfully');
 
-  //   Touch Master Create time Unique Validation Check
-  I.click('Add Touch');
-  I.waitForText('Create New Touch', 3);
-  I.see('Create New Touch');
-  I.fillField('name', '92 KT Yellow 91.80');
-  I.fillField('real_touch', '00');
+  //   Unit Master Create time Unique Validation Check
+  I.click('Add Item Unit');
+  I.waitForText('Create New Item Unit', 3);
+  I.see('Create New Item Unit');
+  I.fillField('name', 'Pcs');
+  I.fillField('shortname', 'Short Name');
   I.click('Save');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
-  I.click('Cancel');
-  I.see('You have unsaved changes. Are you sure you want to discard them?');
-  I.click('Discard');
+  I.refreshPage();
+  I.waitForText('Item Units', 50);
 
-   //   Touch Master Update time Unique Validation Check
+   //   Unit Master Update time Unique Validation Check
   I.click('Open menu'); 
   I.waitForText('Edit', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
-  I.waitForText('Update Touch', 5);
-  I.fillField('name', '92 KT Yellow 91.80');
-  I.click('Save');
+  I.waitForText('Update Item Unit', 5);
+  I.fillField('name', 'Pcs');
+  I.click('Update');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
-  I.click('Cancel');
-  I.see('You have unsaved changes. Are you sure you want to discard them?');
+  I.click('//*[@id="radix-«R173rnelb»"]/form/div[2]/div/button[2]');
+  I.see('You have unsaved changes. Are you sure you want to leave? Your changes will be lost.');
   I.click('Discard');
   
-//   Touch Delete
+//   Unit Delete
   I.click('Open menu');
   I.waitForText('Delete', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
-  I.see('Delete Touch');
+  I.see('Delete Item Unit');
   I.click('Delete');
-  I.see('Touch deleted successfully');
+  I.see('Item unit deleted successfully');
 
-  // Touche Master Filter
+  // Unit Master Filter
   I.click('Filter');
-  I.see('Touch Filters');
-  I.fillField('name', '92 KT Yellow 91.80');
+  I.see('Item Unit Filters');
+  I.fillField('name', 'Pcs');
   I.click('Apply');
-  I.waitForText('92 KT Yellow 91.80', 7);
-  I.see('92 KT Yellow 91.80');
+  I.waitForText('Pcs', 7);
+  I.see('Pcs');
   I.click('Filter');
   I.click('Clear');
 
