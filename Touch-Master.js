@@ -87,7 +87,7 @@ Scenario('Login and Touch Master', ({ I }) => {
 
   // Touche Master Filter
   I.click('Filter');
-  I.see('Touch Filter');
+  I.see('Touch Filters');
   I.fillField('name', '92 KT Yellow 91.80');
   I.click('Apply');
   I.waitForText('92 KT Yellow 91.80', 7);
