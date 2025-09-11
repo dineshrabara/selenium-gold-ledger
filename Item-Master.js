@@ -1,7 +1,7 @@
 Feature('login');
 
 Scenario('Login and Item Master', ({ I }) => {
-  I.amOnPage('https://gold.socioledger.com');
+  I.amOnPage('/');
 
 //   Login Page
   I.click('Login');
@@ -43,7 +43,7 @@ Scenario('Login and Item Master', ({ I }) => {
   I.click(locate('span').withText('Primary'));
   I.click('button[name="item_type"]');
   I.click(locate('span').withText('Goods'));
-  I.attachFile(locate('input[type="file"]'), 'files/file.jpeg');
+  I.attachFile(locate('input[type="file"]'), 'files/gents_ring.jpg');
   I.waitForText('File uploaded successfully', 10);
   I.see('File uploaded successfully');
   I.fillField('hsn_code', '0001');
@@ -73,7 +73,7 @@ Scenario('Login and Item Master', ({ I }) => {
   I.click(locate('span').withText('Primary'));
   I.click('button[name="item_type"]');
   I.click(locate('span').withText('Goods'));
-  I.attachFile(locate('input[type="file"]'), 'files/file.jpeg');
+  I.attachFile(locate('input[type="file"]'), 'files/gents_ring.jpg');
   I.waitForText('File uploaded successfully', 10);
   I.see('File uploaded successfully');
   I.fillField('hsn_code', '0001');

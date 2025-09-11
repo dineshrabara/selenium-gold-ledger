@@ -1,7 +1,7 @@
 Feature('login');
 
 Scenario('Login and Touch Master', ({ I }) => {
-  I.amOnPage('https://gold.socioledger.com');
+  I.amOnPage('/');
 
 //   Login Page
   I.click('Login');
