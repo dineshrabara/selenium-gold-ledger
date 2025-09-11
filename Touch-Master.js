@@ -1,12 +1,12 @@
 Feature('login');
 
 Scenario('Login and Touch Master', ({ I }) => {
-  I.amOnPage('https://gold.socioledger.com');
+  I.amOnPage('/');
 
 //   Login Page
   I.click('Login');
-  I.fillField('username', 'jenishvarsani9099@gmail.com');
-  I.fillField('password', 'Jenish@@9099');
+  I.fillField('username', process.env.USER);
+  I.fillField('password', process.env.PASSWORD);
   I.click('Sign In');
 
 //   Dashboard verify

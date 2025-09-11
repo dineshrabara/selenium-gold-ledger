@@ -7,18 +7,21 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
+
+require('dotenv').config();
+
 exports.config = {
   tests: './*_test.js',
   output: './output',
   helpers: {
     Playwright: {
-      browser: 'chromium',
-      url: 'http://localhost',
-      show: true
+      url: process.env.BASE_URL,
+      show: true,
+      browser: 'chromium'
     }
   },
   include: {
     I: './steps_file.js'
   },
   name: 'selenium-gold-ledger'
-}
+};
