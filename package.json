@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@codeceptjs/configure": "^1.0.6",
     "codeceptjs": "^3.7.4",
     "dotenv": "^17.2.2",
     "playwright": "^1.55.0",
