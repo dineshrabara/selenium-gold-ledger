@@ -56,6 +56,7 @@ Scenario('Login and Item Group Master', ({ I }) => {
   I.click('Add Item Group');
   I.waitForText('Create New Item Group', 3);
   I.see('Create New Item Group');
+  I.waitForText('Decimal Number', 5);
   I.fillField('name', 'Primary');
   I.fillField('shortname', 'Short Name');
   I.fillField('decimal_number', '0');
@@ -70,13 +71,13 @@ Scenario('Login and Item Group Master', ({ I }) => {
   I.waitForText('Edit', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
   I.waitForText('Update Item Group', 5);
+  I.see('Update Item Group');
+  I.waitForText('Decimal Number', 5);
   I.fillField('name', 'Primary');
   I.click('Update');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
-  I.click('//*[@id="radix-«R173rnelb»"]/form/div[2]/div/button[2]');
-  I.see('You have unsaved changes. Are you sure you want to leave? Your changes will be lost.');
-  I.click('Discard');
+  I.refreshPage();
   
 //   Item Group Delete
   I.click('Open menu');
