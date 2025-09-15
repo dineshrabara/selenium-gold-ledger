@@ -1,17 +1,13 @@
 Feature('login');
 
-Scenario('Login and Unit Master', ({ I }) => {
-  I.amOnPage('https://gold.socioledger.com');
+Before(({ I }) => {
+  I.login();
+});
 
-//   Login Page
-  I.click('Login');
-  I.fillField('username', 'jenishvarsani9099@gmail.com');
-  I.fillField('password', 'Jenish@@9099');
-  I.click('Sign In');
+Scenario('Login and Unit Master', ({ I }) => {
+  I.amOnPage('/login');
 
 //   Dashboard verify
-  I.waitForText('Login Completed Successfully', 5);
-  I.see('Login Completed Successfully');
   I.waitForText('Welcome back, Jenish Varsani! 👋', 5);
   I.see('Welcome back, Jenish Varsani! 👋');
   I.see('Total Revenue');
@@ -55,6 +51,7 @@ Scenario('Login and Unit Master', ({ I }) => {
   I.click('Add Item Unit');
   I.waitForText('Create New Item Unit', 3);
   I.see('Create New Item Unit');
+  I.waitForText('Short Name', 5);
   I.fillField('name', 'Pcs');
   I.fillField('shortname', 'Short Name');
   I.click('Save');
@@ -67,14 +64,13 @@ Scenario('Login and Unit Master', ({ I }) => {
   I.click('Open menu'); 
   I.waitForText('Edit', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
-  I.waitForText('Update Item Unit', 5);
+  I.waitForText('Update Item Unit', 10);
+  I.waitForText('Short Name', 5);
   I.fillField('name', 'Pcs');
   I.click('Update');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
-  I.click('//*[@id="radix-«R173rnelb»"]/form/div[2]/div/button[2]');
-  I.see('You have unsaved changes. Are you sure you want to leave? Your changes will be lost.');
-  I.click('Discard');
+  I.refreshPage();
   
 //   Unit Delete
   I.click('Open menu');

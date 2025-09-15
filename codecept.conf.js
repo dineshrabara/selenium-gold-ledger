@@ -11,7 +11,7 @@ setCommonPlugins();
 require('dotenv').config();
 
 exports.config = {
-  tests: './*_test.js',
+  tests: './*.js',
   output: './output',
   helpers: {
     Playwright: {
@@ -22,6 +22,7 @@ exports.config = {
   },
   include: {
     I: './steps_file.js'
+
   },
   name: 'selenium-gold-ledger'
 };
