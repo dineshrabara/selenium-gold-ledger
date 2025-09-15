@@ -1,17 +1,13 @@
 Feature('login');
 
-Scenario('Login and Item Design Master', ({ I }) => {
-  I.amOnPage('/');
+Before(({ I }) => {
+  I.login();
+});
 
-//   Login Page
-  I.click('Login');
-  I.fillField('username', process.env.USER);
-  I.fillField('password', process.env.PASSWORD);
-  I.click('Sign In');
+Scenario('Login and Item Design Master', ({ I }) => {
+  I.amOnPage('/login');
 
 //   Dashboard verify
-  I.waitForText('Login Completed Successfully', 5);
-  I.see('Login Completed Successfully');
   I.waitForText('Welcome back, Jenish Varsani! 👋', 5);
   I.see('Welcome back, Jenish Varsani! 👋');
   I.see('Total Revenue');

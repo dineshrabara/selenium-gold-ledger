@@ -1,17 +1,13 @@
 Feature('login');
 
-Scenario('Login and Touch Master', ({ I }) => {
-  I.amOnPage('/');
+Before(({ I }) => {
+  I.login();
+});
 
-//   Login Page
-  I.click('Login');
-  I.fillField('username', process.env.USER);
-  I.fillField('password', process.env.PASSWORD);
-  I.click('Sign In');
+Scenario('Login and Touch Master', ({ I }) => {
+  I.amOnPage('/login');
 
 //   Dashboard verify
-  I.waitForText('Login Completed Successfully', 5);
-  I.see('Login Completed Successfully');
   I.waitForText('Welcome back, Jenish Varsani! 👋', 5);
   I.see('Welcome back, Jenish Varsani! 👋');
   I.see('Total Revenue');
@@ -48,7 +44,7 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
   I.waitForText('Update Touch', 5);
   I.fillField('name', touch_name);
-  I.click('Save');
+  I.click('Update');
   I.see('Touch updated successfully');
 
   //   Touch Master Create time Unique Validation Check
@@ -70,7 +66,7 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
   I.waitForText('Update Touch', 5);
   I.fillField('name', '92 KT Yellow 91.80');
-  I.click('Save');
+  I.click('Update');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
   I.click('Cancel');
