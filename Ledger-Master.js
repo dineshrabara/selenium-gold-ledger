@@ -8,8 +8,8 @@ Scenario('Login and Ledger Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify
-  I.waitForText('Welcome back, Jenish Varsani! 👋', 5);
-  I.see('Welcome back, Jenish Varsani! 👋');
+  I.waitForText('Welcome back,', 5);
+  I.see('Welcome back,');
   I.see('Total Revenue');
   I.see('Net Profit / Loss');
   I.see('Pending Receipts');

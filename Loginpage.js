@@ -1,6 +1,6 @@
 Feature('login');
 
-Scenario('Login Page', ({ I }) => {
+Scenario('Login Page verify', ({ I }) => {
   I.amOnPage('/login');
 
 // Wrong login user & password
