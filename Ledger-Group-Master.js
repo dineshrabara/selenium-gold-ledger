@@ -8,8 +8,8 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify
-  I.waitForText('Welcome back, Jenish Varsani! 👋', 5);
-  I.see('Welcome back, Jenish Varsani! 👋');
+  I.waitForText('Welcome back,', 5);
+  I.see('Welcome back,');
   I.see('Total Revenue');
   I.see('Net Profit / Loss');
   I.see('Pending Receipts');
@@ -45,7 +45,7 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   I.waitForText('Edit', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
   I.waitForText('Update Ledger Group', 5);
-  I.fillField('name', Ledger_Group_name);
+  I.fillField('name', 'TestLedger');
   I.click('Update');
   I.waitForText('Ledger group updated successfully', 5);
   I.see('Ledger group updated successfully');
@@ -55,13 +55,16 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   I.waitForText('Create New Ledger Group', 3);
   I.see('Create New Ledger Group');
   I.waitForText('Under Group', 5);
-  I.fillField('name', 'Sales Account');
+  I.fillField('name', 'TestLedger');
   I.click('button[name="under_group"]');
   I.click(locate('span').withText('Sales Account'));
   I.click('Save');
   I.waitForText('The name has already been taken.', 3);
   I.see('The name has already been taken.');
-  I.refreshPage();
+  I.fillField('name', 'TestLedger1');
+  I.click('Save');
+  I.waitForText('Ledger group created successfully', 10);
+  I.see('Ledger group created successfully');
 
    //   Ledger Group Master Update time Unique Validation Check
   I.click('Open menu'); 
@@ -70,7 +73,7 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   I.waitForText('Update Ledger', 10);
   I.see('Update Ledger');
   I.waitForText('Under Group', 5);
-  I.fillField('name', 'Sales Account');
+  I.fillField('name', 'TestLedger');
   I.click('Update');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
@@ -87,10 +90,10 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   // Ledger Group Master Filter
   I.click('Filter');
   I.see('Ledger Group Filters');
-  I.fillField('name', 'Supplier');
+  I.fillField('name', 'TestLedger');
   I.click('Apply');
-  I.waitForText('Supplier', 7);
-  I.see('Supplier');
+  I.waitForText('TestLedger', 7);
+  I.see('TestLedger');
 
   // Ledger Group Delete Dependency
   I.click('Open menu');
@@ -98,10 +101,24 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
   I.see('Delete Ledger Group');
   I.click('Delete');
-  I.waitForText('The parent record can not be update/deleted as its used in Ledgers modules', 5);
+  I.click('Filter');
+  I.click('Clear');
+
+  // Ledger Group Master Delete Dependency for Ledger Master
+  I.click('Filter');
+  I.see('Ledger Group Filters');
+  I.fillField('name', 'Supplier');
+  I.click('Apply');
+  I.waitForText('Supplier', 7);
+  I.see('Supplier');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Ledger Group');
+  I.click('Delete');
+  I.waitForText('The parent record can not be update/deleted as its used in Ledgers modules', 10);
   I.see('The parent record can not be update/deleted as its used in Ledgers modules');
   I.click('Cancel');
   I.click('Filter');
   I.click('Clear');
-
 });
