@@ -109,7 +109,7 @@ Scenario('Login and Receipt', ({ I }) => {
   I.click('Add Receipt');
   I.waitForText('Create New Receipt', 3);
   I.see('Create New Receipt');
-  I.waitForText('Testsupplier', 10);
+  I.waitForText('Testsupplier', 1);
   I.click(locate('span').withText('Testsupplier'));
   I.see('Closing Balance: ');
   I.see('Fine Closing Balance: ');

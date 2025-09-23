@@ -198,8 +198,7 @@ Scenario('Login and Reports', ({ I }) => {
   I.see('Verify');
   I.see('Item');
   I.see('Touch');
-  I.see('Clear Verified');
-  I.see('Clear Filters');
+  I.see('Clear Verified Tags');
   I.see('Scan Tag');
   I.see('Total Tags');
   I.see('Tags');

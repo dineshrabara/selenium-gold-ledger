@@ -61,10 +61,10 @@ Scenario('Login and Transfer', ({ I }) => {
   I.fillField('narration', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
   I.click('button[name="transfer_ledgers.0.to_ledger_id"]');
   I.click(locate('span').withText('Bank Account'));
-  I.fillField('amount', '1250');
-  I.fillField('narration', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+  I.fillField('transfer_ledgers.0.amount', '1250');
+  I.fillField('transfer_ledgers.0.narration', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
   I.click('Save');
-  I.see('Transfer created successfully');
+  I.see('New record created successfully');
 
 //   Transfer Update
   I.click('Open menu'); 
@@ -72,7 +72,7 @@ Scenario('Login and Transfer', ({ I }) => {
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
   I.waitForText('Update Transfer', 5);
   I.see('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
-  I.fillField('amount', '1350');
+  I.fillField('transfer_ledgers.0.amount', '1350');
   I.click('Update');
   I.waitForText('Transfer updated successfully', 15);
   I.see('Transfer updated successfully');
@@ -105,21 +105,21 @@ Scenario('Login and Transfer', ({ I }) => {
   I.see('Create New Transfer');
   I.click('button[name="transaction_type"]');
   I.click(locate('span').withText('Amount'));
-  I.click('button[name="Amount"]');
+  I.click('button[name="type"]');
   I.click(locate('span').withText('Credit'));
   I.click('button[name="from_ledger_id"]');
   I.click(locate('span').withText('Testsupplier'));
   I.fillField('narration', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
   I.click('button[name="transfer_ledgers.0.to_ledger_id"]');
   I.click(locate('span').withText('Bank Account'));
-  I.fillField('amount', '-1250');
-  I.fillField('narration', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+  I.fillField('transfer_ledgers.0.amount', '-1250');
+  I.fillField('transfer_ledgers.0.narration', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
   I.click('Save');
   I.waitForText('The amount field must be at least 1.', 20);
   I.see('The amount field must be at least 1.');
-  I.fillField('amount', '1250');
+  I.fillField('transfer_ledgers.0.amount', '1250');
   I.click('Save');
-  I.see('Transfer created successfully');
+  I.see('New record created successfully');
   I.click('Open menu');
   I.waitForText('Delete', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');

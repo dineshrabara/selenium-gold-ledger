@@ -42,9 +42,6 @@ Scenario('Login and Team Master', ({ I }) => {
   I.click(locate('span').withText('Active'));
   I.checkOption('//*[@id="18"]');  // Ledger Group Add
   I.checkOption('//*[@id="19"]');  // Ledger Group Update
-  I.checkOption('//*[@id="20"]');  // Ledger Group Delete
-  I.checkOption('//*[@id="21"]');  // Ledger Group List
-  I.checkOption('//*[@id="22"]');  // Ledger Group Index
   I.click('Save');
 
   //   Team Master Update
@@ -55,7 +52,7 @@ Scenario('Login and Team Master', ({ I }) => {
   I.fillField('name', 'Hello');
   I.fillField('email', 'hello@gmail.com');
   I.click('button[name="status"]');
-  I.click(locate('span').withText('De-active'));
+  I.click(locate('span').withText('Inactive'));
   I.click('Update');
   I.see('Team updated successfully');
 
@@ -76,9 +73,6 @@ Scenario('Login and Team Master', ({ I }) => {
   I.click(locate('span').withText('Active'));
   I.checkOption('//*[@id="18"]');  // Ledger Group Add
   I.checkOption('//*[@id="19"]');  // Ledger Group Update
-  I.checkOption('//*[@id="20"]');  // Ledger Group Delete
-  I.checkOption('//*[@id="21"]');  // Ledger Group List
-  I.checkOption('//*[@id="22"]');  // Ledger Group Index
   I.click('Save');
   I.waitForText('The email has already been taken.', 3)
   I.see('The email has already been taken.');
@@ -106,9 +100,6 @@ Scenario('Login and Team Master', ({ I }) => {
   I.click(locate('span').withText('Active'));
   I.checkOption('//*[@id="18"]');  // Ledger Group Add
   I.checkOption('//*[@id="19"]');  // Ledger Group Update
-  I.checkOption('//*[@id="20"]');  // Ledger Group Delete
-  I.checkOption('//*[@id="21"]');  // Ledger Group List
-  I.checkOption('//*[@id="22"]');  // Ledger Group Index
   I.click('Save');
 
   //   Team Master Update time Unique Validation Check
@@ -179,9 +170,6 @@ Scenario('Login and Team Master', ({ I }) => {
   I.see('The team permissions field is required.');
   I.checkOption('//*[@id="18"]');  // Ledger Group Add
   I.checkOption('//*[@id="19"]');  // Ledger Group Update
-  I.checkOption('//*[@id="20"]');  // Ledger Group Delete
-  I.checkOption('//*[@id="21"]');  // Ledger Group List
-  I.checkOption('//*[@id="22"]');  // Ledger Group Index
   I.click('Save');
   I.click('Open menu');
   I.waitForText('Delete', 5);
