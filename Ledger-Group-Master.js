@@ -32,8 +32,9 @@ Scenario('Login and Ledger Group Master', ({ I }) => {
   I.click('Add Ledger Group');
   I.waitForText('Create New Ledger Group', 3);
   I.see('Create New Ledger Group');
-  const Ledger_Group_name = `Ledger Group (${Date.now()})`;
-  I.fillField('name', Ledger_Group_name);
+  // const Ledger_Group_name = `Ledger Group (${Date.now()})`;
+  // I.fillField('name', Ledger_Group_name);
+  I.fillField('name', 'TestLedger1');
   I.click('button[name="under_group"]');
   I.click(locate('span').withText('Sales Account'));
   I.click('Save');
