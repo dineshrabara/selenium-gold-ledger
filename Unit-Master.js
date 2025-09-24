@@ -34,7 +34,7 @@ Scenario('Login and Unit Master', ({ I }) => {
   I.see('Create New Item Unit');
   // const Unit_name = `Unit (${Date.now()})`;
   // I.fillField('name', Unit_name);
-  I.fillField('name', 'TestPcs');
+  I.fillField('name', 'TestPcs1');
   I.fillField('shortname', 'Short Name');
   I.click('Save');
   I.see('Item unit created successfully');
