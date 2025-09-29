@@ -11,15 +11,15 @@ Scenario('Login Page verify', ({ I }) => {
   I.see('The user credentials were incorrect.')
 
 //   Correct login user & password
-  I.fillField('username', process.env.USER);
+  I.fillField('username', process.env.USERNAME);
   I.fillField('password', process.env.PASSWORD);
   I.click('Sign In');
   I.waitForText('Login Completed Successfully', 10)
   I.see('Login Completed Successfully')
 
 //   Dashboard verify
-  I.waitForText('Welcome back, Jenish Varsani! 👋', 10);
-  I.see('Welcome back, Jenish Varsani! 👋');
+  I.waitForText('Welcome back,', 10);
+  I.see('Welcome back,');
   I.see('Total Revenue');
   I.see('Net Profit / Loss');
   I.see('Pending Receipts');

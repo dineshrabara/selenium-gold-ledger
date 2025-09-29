@@ -12,7 +12,7 @@ module.exports = function() {
     {
       console.log(username, password);
       this.amOnPage('/login');
-      this.fillField('username', username);
+      this.fillField('username', USERNAME);
       this.fillField('password', password);
       this.click('Sign In');
       this.waitForNavigation();
