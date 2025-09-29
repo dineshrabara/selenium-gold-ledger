@@ -34,7 +34,7 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.see('Create New Touch');
   // const touch_name = `92 KT (${Date.now()})`;
   // I.fillField('name', touch_name);
-  I.fillField('name', 'TestTouch');
+  I.fillField('name', 'TestTouch1');
   I.fillField('real_touch', '00');
   I.click('Save');
   I.see('Touch created successfully');

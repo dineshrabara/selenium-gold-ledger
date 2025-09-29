@@ -113,13 +113,30 @@ Scenario('Login and Item Master', ({ I }) => {
   I.waitForText('ItemTest', 7);
   I.see('ItemTest');
 
-  // Item Delete Dependency
+  // Item Delete
   I.click('Open menu');
   I.waitForText('Delete', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
   I.see('Delete Item');
   I.click('Delete');
   I.see('Item deleted successfully');
+  I.click('Filter');
+  I.click('Clear');
+  
+  // Item Delete dependency
+  I.click('Filter');
+  I.see('Item Filters');
+  I.fillField('name', 'Gents Ring');
+  I.click('Apply');
+  I.waitForText('Gents Ring', 7);
+  I.see('Gents Ring');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Item');
+  I.click('Delete');
+  I.see('The parent record can not be update/deleted as its used in Voucher modules (and 2 more errors)');
+  I.click('Cancel');
   I.click('Filter');
   I.click('Clear');
 

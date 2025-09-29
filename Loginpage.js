@@ -18,8 +18,8 @@ Scenario('Login Page verify', ({ I }) => {
   I.see('Login Completed Successfully')
 
 //   Dashboard verify
-  I.waitForText('Welcome back, Jenish Varsani! 👋', 10);
-  I.see('Welcome back, Jenish Varsani! 👋');
+  I.waitForText('Welcome back,', 10);
+  I.see('Welcome back,');
   I.see('Total Revenue');
   I.see('Net Profit / Loss');
   I.see('Pending Receipts');

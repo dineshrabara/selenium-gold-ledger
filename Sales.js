@@ -210,6 +210,7 @@ Scenario('Login and Sales Voucher', ({ I }) => {
 I.waitForText('Filter', 10);
 I.see('Filter');
 I.click('Filter');
+I.waitForText('From Ledger', 5);
 I.click('button[name="from_ledger_id"]');
 I.click(locate('span').withText('TestCustomer'));
 I.click('Apply');

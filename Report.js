@@ -75,13 +75,12 @@ Scenario('Login and Reports', ({ I }) => {
   I.see('Ledger');
   I.waitForText('Date', 10);
   I.see('Date');
-  I.see('Time');
-  I.see('Type');
-  I.see('Source');
-  I.see('ledger');
+  I.see('Source By Ledger');
   I.see('Narration');
+  I.see('Fine');
   I.see('Amount');
-  I.see('Fine Weight');
+  I.see('Debit');
+  I.see('Credit');
   I.see('Total Vouchers:');
   
   // Profit & Loss
@@ -192,7 +191,6 @@ Scenario('Login and Reports', ({ I }) => {
   I.click('Tag Verify');
   I.waitForText('Tag Verify', 5);
   I.see('Tag Verify');
-  I.see('Scan to mark verified. Use controls to group and filter.');
   I.see('Filters');
   I.see('Group By');
   I.see('Verify');
