@@ -32,8 +32,9 @@ Scenario('Login and Item Group Master', ({ I }) => {
   I.click('Add Item Group');
   I.waitForText('Create New Item Group', 3);
   I.see('Create New Item Group');
-  const itemgroup_name = `Item Group (${Date.now()})`;
-  I.fillField('name', itemgroup_name);
+  // const itemgroup_name = `Item Group (${Date.now()})`;
+  // I.fillField('name', itemgroup_name);
+  I.fillField('name', 'TestItem');
   I.fillField('shortname', 'Short Name');
   I.fillField('decimal_number', '0');
   I.click('Save');

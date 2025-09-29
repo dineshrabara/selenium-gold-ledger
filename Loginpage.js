@@ -11,7 +11,7 @@ Scenario('Login Page verify', ({ I }) => {
   I.see('The user credentials were incorrect.')
 
 //   Correct login user & password
-  I.fillField('username', process.env.USERNAME);
+  I.fillField('username', process.env.USER);
   I.fillField('password', process.env.PASSWORD);
   I.click('Sign In');
   I.waitForText('Login Completed Successfully', 10)

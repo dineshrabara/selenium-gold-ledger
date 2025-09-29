@@ -6,7 +6,7 @@
 module.exports = function() {
   return actor({
     login: function(
-      username = process.env.USERNAME,
+      username = process.env.USER,
       password = process.env.PASSWORD
     )
     {
