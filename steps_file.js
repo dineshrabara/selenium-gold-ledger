@@ -6,13 +6,13 @@
 module.exports = function() {
   return actor({
     login: function(
-      username = process.env.USER,
+      username = process.env.USERNAME,
       password = process.env.PASSWORD
     )
     {
       console.log(username, password);
       this.amOnPage('/login');
-      this.fillField('username', USERNAME);
+      this.fillField('username', username);
       this.fillField('password', password);
       this.click('Sign In');
       this.waitForNavigation();
