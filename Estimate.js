@@ -84,4 +84,72 @@ I.see('estimate deleted successfully');
 I.click('Filter');
 I.click('Clear');
 
+// Item First Delete
+I.click('Items');
+I.waitForText('Items', 2);
+I.click('a[href="/items"]');
+I.waitForText('Items', 10);
+I.waitForText('Items');
+I.waitForText('TestService', 2);
+I.see('TestService');
+I.see('TestRawMaterial');
+I.see('TestItem');
+I.click('Open menu');
+I.waitForText('Delete', 5);
+I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+I.see('Delete Item');
+I.click('Delete');
+I.see('Item deleted successfully');
+
+// Item Second Delete
+I.click('Open menu');
+I.waitForText('Delete', 5);
+I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+I.see('Delete Item');
+I.click('Delete');
+I.see('Item deleted successfully');
+
+// Item three Delete
+I.click('Open menu');
+I.waitForText('Delete', 5);
+I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+I.see('Delete Item');
+I.click('Delete');
+I.see('Item deleted successfully');
+
+// Touch First Delete
+  I.click('Touch & Colors');
+  I.see('Touch');
+  I.waitForText('TestTouch92', 7);
+  I.see('TestTouch92');
+  I.see('TestTouchNone');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Touch');
+  I.click('Delete');
+  I.see('Touch deleted successfully');
+
+  // Touch Second Delete
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Touch');
+  I.click('Delete');
+  I.see('Touch deleted successfully');
+
+  // Ledger Delete
+  I.click('Ledgers');
+  I.waitForText('Ledgers', 2);
+  I.click('a[href="/ledgers"]');
+  I.see('Ledgers');
+  I.waitForText('TestCustomer', 5);
+  I.see('TestCustomer');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Ledger');
+  I.click('Delete');
+  I.see('Ledger deleted successfully');
+
 });

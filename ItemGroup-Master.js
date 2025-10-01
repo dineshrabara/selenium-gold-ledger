@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Item Group Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Item Group Master', ({ I }) => {
+Scenario('Item Group Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify
@@ -23,7 +23,7 @@ Scenario('Login and Item Group Master', ({ I }) => {
   I.see('Top 5 Customers');
   I.see('Top 5 Suppliers');
 
-//   Item Groups Master Create
+// Required Filed Checked
   I.click('Items');
   I.waitForText('Item Groups', 2);
   I.click('Item Groups');
@@ -32,10 +32,19 @@ Scenario('Login and Item Group Master', ({ I }) => {
   I.click('Add Item Group');
   I.waitForText('Create New Item Group', 3);
   I.see('Create New Item Group');
-  // const itemgroup_name = `Item Group (${Date.now()})`;
-  // I.fillField('name', itemgroup_name);
+  I.click('Save');
+  I.see('Name is required');
+  I.see('Short name is required');
+  I.see('Decimal Number is required');
+
+//   Item Groups Master Create
   I.fillField('name', 'TestItem');
+  I.click('Save');
+  I.see('Short name is required');
+  I.see('Decimal Number is required');  
   I.fillField('shortname', 'Short Name');
+  I.click('Save');
+  I.see('Decimal Number is required');  
   I.fillField('decimal_number', '0');
   I.click('Save');
   I.see('Item group created successfully');
@@ -90,6 +99,13 @@ Scenario('Login and Item Group Master', ({ I }) => {
   // Item Group Master Filter
   I.click('Filter');
   I.see('Item Group Filters');
+  I.fillField('shortname', 'Short Name');
+  I.click('Apply');
+  I.waitForText('Short Name', 7);
+  I.see('Short Name');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
   I.fillField('name', 'TestItem');
   I.click('Apply');
   I.waitForText('TestItem', 7);
@@ -103,5 +119,123 @@ Scenario('Login and Item Group Master', ({ I }) => {
   I.see('Delete Item Group');
   I.click('Delete');
   I.see('Item group deleted successfully');
+
+// Pagination check
+  I.click('Add Item Group');
+  I.fillField('name', 'Test0');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test1');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test2');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test3');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');;
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test4');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test5');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test6');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test7');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test8');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('Add Item Group');
+  I.fillField('name', 'Test9');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+
+  I.click('100 rows');
+  I.click('10 rows');
+  I.click('Next');
+  I.click('Previous');
+
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.see('Item group deleted successfully');  
 
 });
