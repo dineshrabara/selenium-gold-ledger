@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Touch Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Touch Master', ({ I }) => {
+Scenario('Touch Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify
@@ -23,7 +23,7 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.see('Top 5 Customers');
   I.see('Top 5 Suppliers');
 
-//  First Touch Master Create
+// Required Filed Checked
   I.click('Items');
   I.waitForText('Touch & Colors', 2);
   I.click('Touch & Colors');
@@ -32,10 +32,15 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.click('Add Touch');
   I.waitForText('Create New Touch', 3);
   I.see('Create New Touch');
-  // const touch_name = `92 KT (${Date.now()})`;
-  // I.fillField('name', touch_name);
-  I.fillField('name', 'TestTouch1');
-  I.fillField('real_touch', '00');
+  I.click('Save');
+  I.see('Name is required');
+  I.see('Real Touch is required');
+
+//  First Touch Master Create
+  I.fillField('name', 'TestTouch');
+  I.click('Save');
+  I.see('Real Touch is required');
+  I.fillField('real_touch', '10');
   I.click('Save');
   I.see('Touch created successfully');
 
@@ -90,6 +95,13 @@ Scenario('Login and Touch Master', ({ I }) => {
   // Touche Master Filter
   I.click('Filter');
   I.see('Touch Filters');
+  I.fillField('real_touch', '10')
+  I.click('Apply');
+  I.waitForText('10', 7);
+  I.see('10');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
   I.fillField('name', 'TestTouch');
   I.click('Apply');
   I.waitForText('TestTouch', 7);
@@ -101,6 +113,114 @@ Scenario('Login and Touch Master', ({ I }) => {
   I.waitForText('Delete', 5);
   I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
   I.see('Delete Touch');
+  I.click('Delete');
+  I.see('Touch deleted successfully');
+
+  // Pagination check
+  I.click('Add Touch');
+  I.fillField('name', 'Test0');
+  I.fillField('real_touch', 'Test0');
+  I.click('Save');
+  I.see('Touch created successfully');
+
+  I.click('Add Touch');
+  I.fillField('name', 'Test1');
+  I.fillField('real_touch', 'Test1');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test2');
+  I.fillField('real_touch', 'Test2');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test3');
+  I.fillField('real_touch', 'Test3');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test4');
+  I.fillField('real_touch', 'Test4');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test5');
+  I.fillField('real_touch', 'Test5');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test6');
+  I.fillField('real_touch', 'Test6');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test7');
+  I.fillField('real_touch', 'Test7');
+  I.click('Save');
+  I.see('Touch created successfully');
+
+  I.click('Add Touch');
+  I.fillField('name', 'Test8');
+  I.fillField('real_touch', 'Test8');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('Add Touch');
+  I.fillField('name', 'Test9');
+  I.fillField('real_touch', 'Test9');
+  I.click('Save');
+  I.see('Touch created successfully');
+  
+  I.click('100 rows');
+  I.click('10 rows');
+  I.click('Next');
+  I.click('Previous');
+
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
   I.click('Delete');
   I.see('Touch deleted successfully');
 

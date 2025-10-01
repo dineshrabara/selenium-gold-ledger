@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Unit Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Unit Master', ({ I }) => {
+Scenario('Unit Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify
@@ -23,7 +23,7 @@ Scenario('Login and Unit Master', ({ I }) => {
   I.see('Top 5 Customers');
   I.see('Top 5 Suppliers');
 
-// First Unit Master Create
+// Required Filed Checked
   I.click('Items');
   I.waitForText('Item Units', 2);
   I.click('Item Units');
@@ -32,9 +32,14 @@ Scenario('Login and Unit Master', ({ I }) => {
   I.click('Add Item Unit');
   I.waitForText('Create New Item Unit', 3);
   I.see('Create New Item Unit');
-  // const Unit_name = `Unit (${Date.now()})`;
-  // I.fillField('name', Unit_name);
-  I.fillField('name', 'TestPcs1');
+  I.click('Save');
+  I.see('Name is required');
+  I.see('Short name is required');
+
+// First Unit Master Create
+  I.fillField('name', 'TestPcs');
+  I.click('Save');
+  I.see('Short name is required');
   I.fillField('shortname', 'Short Name');
   I.click('Save');
   I.see('Item unit created successfully');
@@ -87,6 +92,13 @@ Scenario('Login and Unit Master', ({ I }) => {
   // Unit Master Filter
   I.click('Filter');
   I.see('Item Unit Filters');
+  I.fillField('shortname', 'Short Name');
+  I.click('Apply');
+  I.waitForText('Short Name', 7);
+  I.see('Short Name');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
   I.fillField('name', 'TestPcs');
   I.click('Apply');
   I.waitForText('TestPcs', 7);
@@ -101,4 +113,111 @@ Scenario('Login and Unit Master', ({ I }) => {
   I.click('Delete');
   I.see('Item unit deleted successfully');
 
+  // Pagination Check
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test0');
+  I.fillField('shortname', 'ShortName0');
+  I.click('Save');
+  I.see('Item unit created successfully');
+
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test1');
+  I.fillField('shortname', 'ShortName1');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test2');
+  I.fillField('shortname', 'ShortName2');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test3');
+  I.fillField('shortname', 'ShortName3');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test4');
+  I.fillField('shortname', 'ShortName4');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test5');
+  I.fillField('shortname', 'ShortName5');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test6');
+  I.fillField('shortname', 'ShortName6');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test7');
+  I.fillField('shortname', 'ShortName7');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test8');
+  I.fillField('shortname', 'ShortName8');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('Add Item Unit');
+  I.fillField('name', 'Test9');
+  I.fillField('shortname', 'ShortName9');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  
+  I.click('100 rows');
+  I.click('10 rows');
+  I.click('Next');
+  I.click('Previous');
+
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.see('Item unit deleted successfully');
 });
