@@ -4,7 +4,7 @@ Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Quotation Voucher', ({ I }) => {
+Scenario('Quotation Voucher', ({ I }) => {
   I.amOnPage('/login');
 
 //   Quotation Create

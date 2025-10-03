@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Item Design Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Item Design Master', ({ I }) => {
+Scenario('Item Design Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify

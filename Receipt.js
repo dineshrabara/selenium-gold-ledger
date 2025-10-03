@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Receipt');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Receipt', ({ I }) => {
+Scenario('Receipt', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify

@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Item Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Item Master', ({ I }) => {
+Scenario('Item Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify
@@ -23,31 +23,105 @@ Scenario('Login and Item Master', ({ I }) => {
   I.see('Top 5 Customers');
   I.see('Top 5 Suppliers');
 
-//   Item Master Create
+// Item Group Create
   I.click('Items');
-  I.waitForText('Items', 2);
+  I.waitForText('Item Groups', 2);
+  I.click('a[href="/item-groups"]');
+  I.see('Item Groups');
+  I.click('Add Item Group');
+  I.waitForText('Create New Item Group', 3);
+  I.see('Create New Item Group');
+  I.fillField('name', 'TestItemgroup1');
+  I.fillField('shortname', 'Short Name');
+  I.fillField('decimal_number', '0');
+  I.click('Save');
+  I.see('Item group created successfully');
+  I.click('Open menu'); 
+  I.waitForText('Edit', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
+  I.waitForText('Update Item Group', 5);
+  I.fillField('name', 'TestItemgroup1');
+  I.fillField('name', 'TestItemgroup1');
+  I.click('Update');
+  I.see('Item group updated successfully');
+
+  // Index column verify
+  I.see('Group');
+  I.see('Name');
+  I.see('Short Name');
+  I.see('Type');
+  I.see('Want Stock');
+  I.see('Status');
+  I.see('Actions');
+
+  // Unit Create
+  I.waitForText('Item Units', 2);
+  I.click('Item Units');
+  I.see('Item Units');
+  I.waitForText('Add Item Unit', 5);
+  I.click('Add Item Unit');
+  I.waitForText('Create New Item Unit', 3);
+  I.see('Create New Item Unit');
+  I.fillField('name', 'TestUnit1');
+  I.fillField('shortname', 'Short Name');
+  I.click('Save');
+  I.see('Item unit created successfully');
+  I.click('Open menu'); 
+  I.waitForText('Edit', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
+  I.waitForText('Update Item Unit', 5);
+  I.fillField('name', 'TestUnit1');
+  I.fillField('name', 'TestUnit1');
+  I.click('Update');
+  I.see('Item unit updated successfully');
+  
+  // Required Filed Checked
+  I.click('Dashboard');
+  I.click('Items');
   I.click('a[href="/items"]');
   I.see('Items');
-  I.waitForText('Add Item', 5);
+  I.waitForText('Want Stock', 10);
   I.click('Add Item');
   I.waitForText('Create New Item', 3);
   I.see('Create New Item');
-  // const Item_name = `Ring (${Date.now()})`;
-  // I.fillField('name', Item_name);
+  I.click('Save');
+  I.see('Name is required');
+  I.see('Short Name is required');
+  I.see('Item Group is required');
+  I.see('Type is required');
+  I.see('Unit is required');
+
+// Item Group Create
+  // I.click('.lucide-settings');
+  // I.click('Add Item Group');
+  // I.see('Create New Item Group');
+  // I.click('input[placeholder="Enter group name"]');
+  // I.fillField('name', 'TestItemgroup');
+  // I.fillField('shortname', 'Test');
+  // I.fillField('decimal_number', '2');
+  // I.click('Save');
+  // I.click('.lucide-settings');
+  // I.click('Add Item Unit');
+  // I.see('Create New Item Unit');
+  // I.fillField('name', 'TestUnit');
+  // I.fillField('shortname', 'Test');
+  // I.click('Save');
+
+//   Item Master Create
   I.fillField('name', 'ItemTest');
   I.fillField('shortname', 'short name');
   I.click('button[name="item_groups_id"]');
-  I.click(locate('span').withText('Primary'));
+  I.click(locate('span').withText('TestItemgroup'));
   I.click('button[name="item_type"]');
   I.click(locate('span').withText('Goods'));
   I.attachFile(locate('input[type="file"]'), 'files/gents_ring.jpg');
   I.waitForText('File uploaded successfully', 10);
   I.see('File uploaded successfully');
   I.fillField('hsn_code', '0001');
-  I.click('button[name="gst_rate"]');
-  I.click(locate('span').withText('0%'));
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
   I.click('button[name="unit_id"]');
-  I.click(locate('span').withText('Pcs'));
+  I.click(locate('span').withText('TestUnit'));
   I.click('Save');
   I.see('Item created successfully');
 
@@ -67,17 +141,17 @@ Scenario('Login and Item Master', ({ I }) => {
   I.fillField('name', 'ItemTest');
   I.fillField('shortname', 'short name');
   I.click('button[name="item_groups_id"]');
-  I.click(locate('span').withText('Primary'));
+  I.click(locate('span').withText('TestItemgroup'));
   I.click('button[name="item_type"]');
   I.click(locate('span').withText('Goods'));
   I.attachFile(locate('input[type="file"]'), 'files/gents_ring.jpg');
   I.waitForText('File uploaded successfully', 10);
   I.see('File uploaded successfully');
   I.fillField('hsn_code', '0001');
-  I.click('button[name="gst_rate"]');
-  I.click(locate('span').withText('0%'));
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
   I.click('button[name="unit_id"]');
-  I.click(locate('span').withText('Pcs'));
+  I.click(locate('span').withText('TestUnit'));
   I.click('Save');
   I.waitForText('The name has already been taken.', 3)
   I.see('The name has already been taken.');
@@ -108,6 +182,47 @@ Scenario('Login and Item Master', ({ I }) => {
   // Iteme Master Filter
   I.click('Filter');
   I.see('Item Filters');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('Apply');
+  I.see('TestItemgroup');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.click('Apply');
+  I.see('Goods');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
+  I.fillField('hsn_code', '0001');
+  I.click('Apply');
+  I.see('TestItemgroup');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Apply');
+  I.see('TestUnit');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
+  I.click('button[name="status"]');
+  I.click(locate('span').withText('Active'));
+  I.click('Apply');
+  I.see('TestItemgroup')
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
+  I.click('button[name="is_stock"]');
+  I.click(locate('span').withText('Yes'));
+  I.click('Apply');
+  I.see('TestItemgroup')
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
   I.fillField('name', 'ItemTest');
   I.click('Apply');
   I.waitForText('ItemTest', 7);
@@ -139,5 +254,217 @@ Scenario('Login and Item Master', ({ I }) => {
   I.click('Cancel');
   I.click('Filter');
   I.click('Clear');
+  
+  // Pagination Check
+  I.click('Add Item');
+  I.fillField('name', 'ItemName1');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+
+  I.click('Add Item');
+  I.fillField('name', 'ItemName2');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName3');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName4');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName5');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName6');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName7');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName8');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName9');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  I.waitForText('Item created successfully', 3)
+  I.see('Item created successfully');
+  
+  I.click('Add Item');
+  I.fillField('name', 'ItemName10');
+  I.fillField('shortname', 'short name');
+  I.click('button[name="item_groups_id"]');
+  I.click(locate('span').withText('TestItemgroup'));
+  I.click('button[name="item_type"]');
+  I.click(locate('span').withText('Goods'));
+  I.fillField('hsn_code', '0001');
+  // I.click('button[name="gst_rate"]');
+  // I.click(locate('span').withText('0%'));
+  I.click('button[name="unit_id"]');
+  I.click(locate('span').withText('TestUnit'));
+  I.click('Save');
+  I.waitForText('Item created successfully', 3)
+  I.see('Item created successfully');
+  
+  I.click('100 rows');
+  I.click('10 rows');
+  I.click('Next');
+  I.click('Previous');
+  
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.click('Delete');
+  I.see('Item deleted successfully');  
+
+  // item Group and Unit Delete
+  I.waitForText('Item Groups', 2);
+  I.click('Item Groups');
+  I.waitForText('TestItemgroup', 3)
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Item Group');
+  I.click('Delete');
+  I.see('Item group deleted successfully');
+  I.waitForText('Item Units', 2);
+  I.click('Item Units');
+  I.waitForText('TestUnit', 3)
+  I.click('Open menu');
+  I.waitForText('Delete', 5);
+  I.click('//div[@role="menuitem" and .//span[text()="Delete"]]');
+  I.see('Delete Item Unit');
+  I.click('Delete');
+  I.see('Item unit deleted successfully');
 
 });

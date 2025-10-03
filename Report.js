@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Reports');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Reports', ({ I }) => {
+Scenario('Reports', ({ I }) => {
   I.amOnPage('/login');
 
 // Ledger Report

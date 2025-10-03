@@ -43,6 +43,10 @@ Scenario('Unit Master', ({ I }) => {
   I.fillField('shortname', 'Short Name');
   I.click('Save');
   I.see('Item unit created successfully');
+  
+  // Index column verify
+  I.see('Name');
+  I.see('Short Name');
 
 //   Unit Master Update
   I.click('Open menu'); 

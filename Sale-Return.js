@@ -4,7 +4,7 @@ Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Sale Return Voucher', ({ I }) => {
+Scenario('Sale Return Voucher', ({ I }) => {
   I.amOnPage('/login');
 
 //   Sale Return Create
