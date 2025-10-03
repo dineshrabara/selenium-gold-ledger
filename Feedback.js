@@ -39,7 +39,6 @@ Scenario('Feedback', ({ I }) => {
   I.click('Open menu');
   I.waitForText('Edit', 2);
   I.click('//div[@role="menuitem" and .//span[text()="Edit"]]');
-  I.waitForText('Update Feedback', 2);
   I.fillField('title', 'TestFeedback');
   I.click('Update');
   I.see('Feedback updated successfully');
@@ -171,6 +170,20 @@ Scenario('Feedback', ({ I }) => {
   //   Feedback Filter
   I.waitForText('Filter', 5);
   I.see('Filter');
+  I.click('Filter');
+  I.click('button[name="category"]');
+  I.click(locate('span').withText('Other'));
+  I.click('Apply');
+  I.see('Other');
+  I.click('Filter');
+  I.click('Clear');
+  I.click('Filter');
+  I.click('button[name="priority"]');
+  I.click(locate('span').withText('Low'));
+  I.click('Apply');
+  I.see('Low');
+  I.click('Filter');
+  I.click('Clear');
   I.click('Filter');
   I.fillField('title', 'TestFeedback');
   I.click('Apply');

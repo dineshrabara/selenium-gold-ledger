@@ -4,7 +4,7 @@ Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Purchase Return Voucher', ({ I }) => {
+Scenario('Purchase Return Voucher', ({ I }) => {
   I.amOnPage('/login');
 
 //   Purchase Return Create

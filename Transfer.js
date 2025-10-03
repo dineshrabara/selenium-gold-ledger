@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Transfer');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Transfer', ({ I }) => {
+Scenario('Transfer', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify

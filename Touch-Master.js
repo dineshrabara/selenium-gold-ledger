@@ -43,6 +43,10 @@ Scenario('Touch Master', ({ I }) => {
   I.fillField('real_touch', '10');
   I.click('Save');
   I.see('Touch created successfully');
+  
+  // Index column verify
+  I.see('Name');
+  I.see('Real Touch');
 
 //  Touch Master Update
   I.click('Open menu'); 

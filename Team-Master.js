@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Team Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Team Master', ({ I }) => {
+Scenario('Team Master', ({ I }) => {
   I.amOnPage('/login');
 
   //   Dashboard verify

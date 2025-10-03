@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Role');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Role Master', ({ I }) => {
+Scenario('Role Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify

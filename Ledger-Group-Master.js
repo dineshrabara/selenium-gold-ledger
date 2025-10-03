@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Ledger Group Master');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Ledger Group Master', ({ I }) => {
+Scenario('Ledger Group Master', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify

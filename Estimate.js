@@ -4,7 +4,7 @@ Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Estimate Voucher', ({ I }) => {
+Scenario('Estimate Voucher', ({ I }) => {
   I.amOnPage('/login');
 
 //   Estimate Create

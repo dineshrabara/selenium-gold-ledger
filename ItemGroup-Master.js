@@ -48,6 +48,10 @@ Scenario('Item Group Master', ({ I }) => {
   I.fillField('decimal_number', '0');
   I.click('Save');
   I.see('Item group created successfully');
+  
+  // Index column verify
+  I.see('Name');
+  I.see('Short Name');
 
 //   Item Groups Master Update
   I.click('Open menu'); 

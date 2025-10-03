@@ -1,10 +1,10 @@
-Feature('login');
+Feature('Payment');
 
 Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Payment', ({ I }) => {
+Scenario('Payment', ({ I }) => {
   I.amOnPage('/login');
 
 //   Dashboard verify

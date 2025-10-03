@@ -4,7 +4,7 @@ Before(({ I }) => {
   I.login();
 });
 
-Scenario('Login and Sales Voucher', ({ I }) => {
+Scenario('Sales Voucher', ({ I }) => {
   I.amOnPage('/login');
 
 // Ledger Create
